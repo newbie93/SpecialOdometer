@@ -7,7 +7,9 @@ public class SpecialOdometer {
 	private int numOfDigits;
 	private ArrayList<String> validDistances;
 
-	public SpecialOdometer(int numOfDigits) {
+	public SpecialOdometer(int numOfDigits) throws Exception {
+		if(numOfDigits>9 || numOfDigits<1)
+			throw new Exception();
 		init(numOfDigits);
 	}
 
