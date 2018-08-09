@@ -19,8 +19,9 @@ public class SpecialOdometer {
 	}
 
 	private void displayAllValidDistances() {
+		int pos=0;
 		for(String str:validDistances)
-			System.out.println(str);
+			System.out.println((pos++)+" > "+str);
 	}
 
 	public boolean isValidDistance(String dist) {
@@ -32,7 +33,7 @@ public class SpecialOdometer {
 			validDistances.add(str);
 			return;
 		}
-		while(startingDigit<='9')	{
+		while(startingDigit<='9') {
 			generateValidDistances(str+startingDigit,(char)(startingDigit+1),num+1);
 			startingDigit=(char)(startingDigit+1);
 		}
@@ -90,11 +91,12 @@ class DistanceException extends Exception {
 
 class Main {
 	public static void main(String a[]) throws Exception {
-		SpecialOdometer specialOdometer=new SpecialOdometer(8);
-		System.out.println(specialOdometer.DifferenceOfDistances("12356789","12345678"));
-		System.out.println(specialOdometer.nextReading("23456789"));
-		System.out.println(specialOdometer.prevReading("12345678"));
-		System.out.println(specialOdometer.nextNthReading("23456789",10));
-		System.out.println(specialOdometer.prevNthReading("12345678",10));
+		SpecialOdometer specialOdometer=new SpecialOdometer(5);
+		System.out.println(specialOdometer.DifferenceOfDistances("12345","56789"));
+		System.out.println(specialOdometer.nextReading("45678"));
+		System.out.println(specialOdometer.prevReading("12345"));
+		System.out.println(specialOdometer.nextNthReading("24579",126));
+		System.out.println(specialOdometer.prevNthReading("25678",126));
+		System.out.println();
 	}
 }
